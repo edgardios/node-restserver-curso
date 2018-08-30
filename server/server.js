@@ -1,19 +1,24 @@
 require('./config/config');
-const express = require('express')
-const app = express();
 
-//Conexion a Mongo
+const express = require('express')
+    //Conexion a Mongo
 const mongoose = require('mongoose');
 
+
+const app = express();
+
 const bodyParser = require('body-parser'); //Permite obtener los datos dentro de un arreglo para ser entregado a JSON
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
 
-//carga user para que se pueda leer
 
-app.use(require('./routes/usuario'));
+//Configuracion de rutas
+//carga user para que se pueda leer los metodos
+
+app.use(require('./routes/index'));
 
 
 //Conexion a DB
