@@ -2,7 +2,7 @@ const express = require('express');
 
 const bcrypt = require('bcrypt'); //Encripta el password
 
-const _ = require('underscore'); //pick gestiona que los campos que se pueden recivir para modificar
+const _ = require('underscore'); //pick gestiona que los campos que se pueden recibir para modificar
 
 const Usuario = require('../models/usuario');
 
@@ -43,7 +43,7 @@ app.get('/usuario', verificaToken, (req, res) => {
         })
 })
 
-app.post('/usuario', [verificaToken, verificaAdmin_Role], function(req, res) {
+app.post('/usuario', verificaToken, function(req, res) {
 
     let body = req.body;
 
